@@ -32,7 +32,14 @@ function getItems(){
     }).then( function( response ){
         console.log( 'back from GET:', response );
         // loop through results
-        // display each on the DOM
+        const el = $( '#itemsOut' );
+        el.empty();
+        for( let i=0; i<response.length; i++ ){
+            // display each on the DOM
+            el.append( `<li>
+                ${ response[i].description}: ${ response[i].size} & ${ response[i].color}
+            </li>`);
+        } // end for
     }).catch( function( err ){
         alert( 'error getting items' );
         console.log( err );
