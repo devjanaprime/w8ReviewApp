@@ -20,5 +20,6 @@ app.get( '/items', ( req, res )=>{
 
 app.post( '/items', ( req, res )=>{
     console.log( 'in /items POST:', req.body );
-    res.send( 'ribbet' );
+    inventory.push( req.body );
+    res.sendStatus( 201 );
 }) //end /items POST
